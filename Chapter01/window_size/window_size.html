@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>실습 1. 윈도우 사이즈 표기</title>
+        <style>
+            .container {
+                display: inline-block;
+                /* 안의 내용에 맞게 크기 자동조절 */
+                background-color: thistle;
+                padding: 16px;
+                margin-top: 16px;
+                font-size: 20px;
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="container"></ul>
+
+        <script>
+            const container = document.querySelector(".container");
+
+            function update() {
+                container.innerHTML = `
+                <li class="list">
+                    window.screen (모니터 사이즈): ${window.screen.width}, ${window.screen.height}
+                </li>
+                <li class="list">
+                    window.outer (전체 브라우저 사이즈): ${window.outerWidth}, ${window.outerHeight}
+                </li>
+                <li class="list">
+                    window.inner (스크롤바 포함 브라우저 내부 사이즈): ${window.innerWidth}, ${window.innerHeight}
+                </li>
+                <li class="list">
+                    documentElement.clientWidth (스크롤바 제외 브라우저 내부 사이즈): ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+                </li>
+                `;
+            }
+
+            window.addEventListener("resize", () => {
+                update();
+            });
+            update();
+        </script>
+    </body>
+</html>
