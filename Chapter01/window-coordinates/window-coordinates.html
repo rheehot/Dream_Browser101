@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>실습 2. 좌표 실습</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-size: 40px;
+            }
+
+            .buttons {
+                width: 100%;
+                text-align: right;
+                position: fixed;
+            }
+
+            .buttons button {
+                height: 40px;
+                margin-right: 50px;
+            }
+
+            .normal {
+                width: 250px;
+                height: 250px;
+                background-color: blanchedalmond;
+                margin-bottom: 4px;
+                border-radius: 4px;
+            }
+
+            .special {
+                background-color: lightsalmon;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <aside class="buttons">
+                <button id="by">Scroll by 100px(y)</button>
+                <!-- scrollBy : 100px씩 이동 -->
+                <button id="to">Scroll to 100px(y)</button>
+                <!-- scrollTo : (0, 100) 으로 이동 -->
+                <button id="into">Scroll into special</button>
+                <!-- special.scrollIntoView : special로 이동 -->
+            </aside>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal special"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+            <div class="normal"></div>
+        </div>
+
+        <script>
+            const special = document.querySelector(".special");
+            const by = document.querySelector("#by");
+            const to = document.querySelector("#to");
+            const into = document.querySelector("#into");
+            let tempCoord = 100;
+
+            special.addEventListener("click", (e) => {
+                const rect = special.getBoundingClientRect();
+                console.log(rect);
+                console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
+                console.log(`pageX: ${e.pageX}, pageY: ${e.pageY}`);
+            });
+
+            by.addEventListener("click", () => {
+                window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+            });
+
+            to.addEventListener("click", () => {
+                window.scrollTo({ top: 100, left: 0, behavior: "smooth" });
+            });
+
+            into.addEventListener("click", () => {
+                special.scrollIntoView({ behavior: "smooth" });
+            });
+        </script>
+    </body>
+</html>
