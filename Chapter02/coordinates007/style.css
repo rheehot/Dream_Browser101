@@ -1,0 +1,32 @@
+body {
+    background-color: #000;
+}
+
+.target {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: translate(-50%, -50%);
+}
+
+.line {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    border: 1px solid #fff;
+}
+
+.xLine {
+    height: 100%;
+}
+
+.yLine {
+    width: 100%;
+}
+
+.coords {
+    display: inline-block;
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+}
